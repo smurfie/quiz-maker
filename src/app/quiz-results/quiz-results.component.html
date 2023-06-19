@@ -1,0 +1,8 @@
+<h2>RESULTS</h2>
+<app-quiz-questions [questions]="questions" [showResults]=true/>
+<p [ngClass] = "{
+  bad:correctAnswers<2,
+  regular: correctAnswers>=2 && correctAnswers<4,
+  good:correctAnswers>=4
+}">You scored {{correctAnswers}} out of {{questions.length}}</p>
+<button (click)="onNewQuiz()">Create a new quiz</button>

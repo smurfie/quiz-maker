@@ -1,0 +1,19 @@
+button {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.editable button:hover,
+button.highlight {
+  background-color: green;
+  color: white;
+}
+
+.editable button:hover {
+  cursor: pointer;
+}
+
+button.incorrect {
+  background-color: red;
+  color: white;
+}

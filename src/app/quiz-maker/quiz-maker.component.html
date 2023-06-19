@@ -1,0 +1,27 @@
+<h2>QUIZ MAKER</h2>
+
+<form [formGroup]="quizForm" (ngSubmit)="onCreate()">
+  <select formControlName="category" id="categorySelect">
+    <option value="">Select a category</option>
+    <option
+      *ngFor="let category of categories$ | async"
+      [ngValue]="category.id"
+    >
+      {{ category.name }}
+    </option>
+  </select>
+
+  <select formControlName="difficulty" id="difficultySelect">
+    <option value="">Select difficulty</option>
+    <option *ngFor="let difficulty of difficulties" [ngValue]="difficulty">
+      {{ difficulty | titlecase }}
+    </option>
+  </select>
+
+  <button type="submit" id="createBtn">Create</button>
+</form>
+
+<app-quiz-questions *ngIf="questions" [questions]="questions" (completed)="onQuizCompleted()"/>
+<p>
+<button *ngIf="quizCompleted" (click)="onSubmit()">Submit</button>
+</p>
